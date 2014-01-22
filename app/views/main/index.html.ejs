@@ -1,0 +1,14 @@
+<!-- Lets talk about geddy -->
+<div class="hero-unit geddy-welcome-box">
+  <% if (user) { %>
+  <h1>Let's Migrate to Ghost!</h1>
+  <p>Ghost is a modern, cloud-oriented site publishing system. Migrating your self-hosted blog to Ghost will require you to also migrate portions of your site's content to 3rd party services optimized for those medias and mediums. This service will assist you in this process.</p>
+  <p><%- linkTo('Begin »', '/begin', {class: 'btn btn-primary btn-large'}) %></p>
+  
+  <% } else { %>
+  <h1>Hello, stranger</h1>
+  <p>You're not authenticated with this app.</p>
+  <p><%- linkTo('Click here to create a user account.', addUserPath) %></p>
+  <p><%- linkTo('Click here to log in with Facebook or Twitter.', loginPath) %></p>
+  <% } %>
+</div>

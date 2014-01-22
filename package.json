@@ -1,0 +1,24 @@
+{
+  "name": "ghost-migration-service",
+  "description": "A service to assist in migrating to the ghost blogging platform",
+  "version": "0.0.1",
+  "author": "Byrne Reese",
+  "dependencies": {
+    "kue": "*",
+    "disqus": "*",
+    "redis": "*",
+    "cheerio": "*",
+    "oauth": "*",
+    "jake": "0.5.x",
+    "geddy":"*",
+    "passport": "0.1.x",
+    "passport-twitter": "0.1.x",
+    "passport-facebook": "0.1.x",
+    "passport-yammer": "0.1.x",
+    "bcrypt": "0.7.x"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "0.8.x"
+  }
+}
