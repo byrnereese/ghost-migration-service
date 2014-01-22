@@ -4,7 +4,7 @@ var https = require('https'),
 var OAuth = function () {
     this.disqus = function (req, resp, params) {
         var self = this;
-        self.redirect('https://disqus.com/api/oauth/2.0/authorize/?client_id='+geddy.config.disqus_apikey+
+        self.redirect('https://disqus.com/api/oauth/2.0/authorize/?client_id='+geddy.config.passport.disqus.consumerKey+
                       '&scope=read,write'+
                       '&response_type=code'+
                       '&redirect_uri='+encodeURIComponent('http://localhost:4000/oauth/disqus/auth'));
@@ -19,8 +19,8 @@ var OAuth = function () {
             var post_data = querystring.stringify({
                 'redirect_uri' : 'http://localhost:4000/oauth/disqus/auth',
                 'grant_type'   : 'authorization_code',
-                'client_id'    : geddy.config.disqus_apikey,
-                'client_secret': geddy.config.disqus_secret,
+                'client_id'    : geddy.config.passport.disqus.consumerKey,
+                'client_secret': geddy.config.passport.disqus.consumerSecret,
                 'code'         : params.code
             });
             //console.log('data: "'+post_data+'"');
@@ -70,7 +70,7 @@ var OAuth = function () {
 
     this.aws = function (req, resp, params) {
         var self = this;
-        self.redirect('https://www.amazon.com/ap/oa?client_id='+geddy.config.aws_apikey+
+        self.redirect('https://www.amazon.com/ap/oa?client_id='+geddy.config.passport.amazon.consumerKey+
                       '&scope=profile'+
                       '&response_type=code'+
                       '&redirect_uri='+encodeURIComponent('http://localhost:4000/oauth/aws/auth'));
@@ -82,8 +82,8 @@ var OAuth = function () {
         var post_data = querystring.stringify({
             'redirect_uri' : 'http://localhost:4000/oauth/aws/auth',
             'grant_type'   : 'authorization_code',
-            'client_id'    : geddy.config.aws_apikey,
-            'client_secret': geddy.config.aws_secret,
+            'client_id'    : geddy.config.passport.amazon.consumerKey,
+            'client_secret': geddy.config.passport.amazon.consumerSecret,
             'code'         : params.code
         });
         //console.log('data: "'+post_data+'"');
